@@ -2,7 +2,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class User(db.model):
+class User(db.Model):
     """Data model for a new user"""
 
     __tablename__ = 'user'
@@ -10,21 +10,21 @@ class User(db.model):
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.Text)
     lname = db.Column(db.Text)
-    email = db.Column(db.Text, Unique=True)
+    email = db.Column(db.Text, unique=True)
     baby_fname = db.Column(db.Text)
     baby_lname = db.Column(db.Text)
     allergies = db.Column(db.Text)
 
-class Allergies(db.model):
+class Allergies(db.Model):
     """Allergens from API"""
 
     __tablename__ = 'allergies'
 
     allergy_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     a_created_at = db.Column(db.Text)
-    name = db.Column(db.text, Unique=True)
+    name = db.Column(db.Text, unique=True)
 
-class Recipes(db.model):
+class Recipes(db.Model):
     """Recipes from API"""
 
     __tablename__ = 'recipes'
@@ -32,27 +32,27 @@ class Recipes(db.model):
     recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     r_created_at = db.Column(db.Text)
     allergens_included = db.Column(db.Text)
-    name = db.Column(db.text, Unique=True)
+    name = db.Column(db.Text, unique=True)
 
 
-class UsersRecipes(db.model):
+class UsersRecipes(db.Model):
     """Showing all recipes for each individual customer's needs"""
 
     __tablename__ = 'users_recipes'
 
     user_recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-    recipe_id = db.Column(db.Integer, db.foreignKey('recipes.recipes_id'))
-    allergy_id = db.Column(db.Integer, db.foreignKey('allergies.allergy_id'))
+    recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.recipes_id'))
+    allergy_id = db.Column(db.Integer, db.ForeignKey('allergies.allergy_id'))
 
     user = db.relationship('User', backref='users_recipes')
     recipe = db.relationship('Recipes', backref='recipes')
     allergy = db.relationship('Allergies', backref='allergies')
 
 
-if __name__ ==  '__main__':
-    from server import app
+# if __name__ ==  '__main__':
+#     from server import app
 
-    connect_to_db(app)
+#     connect_to_db(app)
     
 
