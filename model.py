@@ -45,4 +45,9 @@ class UsersRecipes(db.model):
     recipe_id = db.Column(db.Integer, db.foreignKey('recipes.recipes_id'))
     allergy_id = db.Column(db.Integer, db.foreignKey('allergies.allergy_id'))
 
+    user = db.relationship('User', backref='users_recipes')
+    recipe = db.relationship('Recipes', backref='recipes')
+    allergy = db.relationship('Allergies', backref='allergies')
+
+
 
