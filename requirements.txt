@@ -1,4 +1,4 @@
-Flask==1.1.1
+Flask~=1.1
 Flask-SQLAlchemy~=2.4
 psycopg2-binary
 Jinja2==2.11.2
