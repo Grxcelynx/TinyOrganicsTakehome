@@ -15,6 +15,26 @@ class User(db.model):
     baby_lname = db.Column(db.Text)
     allergies = db.Column(db.Text)
 
+class Allergies(db.model):
+    """Allergens from API"""
+
+    __tablename__ = 'allergies'
+
+    allergy_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    a_created_at = db.Column(db.Text)
+    name = db.Column(db.text, Unique=True)
+
+class Recipes(db.model):
+    """Recipes from API"""
+
+    __tablename__ = 'recipes'
+
+    recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    r_created_at = db.Column(db.Text)
+    allergens_included = db.Column(db.Text)
+    name = db.Column(db.text, Unique=True)
+
+
 class UsersRecipes(db.model):
     """Showing all recipes for each individual customer's needs"""
 
@@ -23,5 +43,6 @@ class UsersRecipes(db.model):
     user_recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
     recipe_id = db.Column(db.Integer, db.foreignKey('recipes.recipes_id'))
+    allergy_id = db.Column(db.Integer, db.foreignKey('allergies.allergy_id'))
 
 
