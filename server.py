@@ -8,8 +8,14 @@ import requests
 app = Flask(__name__)
 app.secret_key = "dev"
 
-response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
-print(response)
+recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
+print(recipe_response.json())
+print("##################")
+
+allergen_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/allergens/")
+print(allergen_response.json())
+
+
 
 
 
