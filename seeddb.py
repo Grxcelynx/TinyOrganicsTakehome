@@ -9,3 +9,5 @@ os.system('createdb tinyorganics')
 
 model.connect_to_db(server.app)
 model.db.create_all()
+
+
