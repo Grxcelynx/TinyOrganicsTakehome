@@ -56,8 +56,11 @@ def recipes():
 
     new_user = crud.create_user(fname,lname,email,baby_fname,baby_lname,allergies)
 
+    if allergies not in recipe_response.json():
 
-    return render_template('user_recipe.HTML', new_user=new_user, recipes=recipe_response.json())
+
+
+        return render_template('user_recipe.HTML', new_user=new_user, recipes=recipe_response.json())
 
 
 

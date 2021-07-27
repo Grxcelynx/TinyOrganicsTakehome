@@ -1,6 +1,11 @@
 <div>
     Here is the new user: {{ new_user.user_id }}
     {% for r in recipes %}
-    <input name="recipes" value="{{r['id']}}, {{r['name']}}, {{r['allergens']}}"> {{r['allergens']}} </input> <br>
+        {% if 'name.allergen' in recipes %}
+            <p>Sorry:</p>
+        {% else %}
+            <p> {{ recipes['name'] }} </p>
+        {% endif %}
+    <!-- <input name="recipes" value="{{r['id']}}, {{r['name']}}, {{r['allergens']}}"> {{r['allergens']}} </input> <br> -->
     {% endfor %}
 </div>
