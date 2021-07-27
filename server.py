@@ -15,8 +15,8 @@ import crud
 app = Flask(__name__)
 app.secret_key = "dev"
 
-# recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
-# print(recipe_response.json())
+recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
+recipe_response.json()
 # print("##################")
 # recipe_dict = json.loads(recipe_response.json)
 
@@ -56,8 +56,11 @@ def recipes():
 
     new_user = crud.create_user(fname,lname,email,baby_fname,baby_lname,allergies)
 
+    if allergies not in recipe_response.json():
 
-    return render_template('user_recipe.HTML', new_user=new_user)
+
+
+        return render_template('user_recipe.HTML', new_user=new_user, recipes=recipe_response.json())
 
 
 
