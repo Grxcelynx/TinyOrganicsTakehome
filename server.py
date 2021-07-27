@@ -9,23 +9,23 @@ import json
 app = Flask(__name__)
 app.secret_key = "dev"
 
-recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
-print(recipe_response.json())
-print("##################")
-recipe_dict = json.loads(recipe_response.json)
+# recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
+# print(recipe_response.json())
+# print("##################")
+# recipe_dict = json.loads(recipe_response.json)
 
 allergen_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/allergens/")
-print(allergen_response.json())
+allergen_response.json()
 
-@app.route('/signup', methods=["POST"])
-def signup():
-    data = request.get_json()
+# @app.route('/signup', methods=["POST"])
+# def signup():
+#     data = request.get_json()
 
 @app.route('/')
 def homepage():
     """homepage"""
-    print(os.getcwd())
-    return render_template('homepage.HTML')
+    
+    return render_template('homepage.HTML', allergen=allergen_response.json())
 
 
 if __name__ == '__main__':
