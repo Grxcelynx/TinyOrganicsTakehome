@@ -1,3 +1,6 @@
 <div>
     Here is the new user: {{ new_user.user_id }}
+    {% for r in recipes %}
+    <input name="recipes" value="{{r['id']}}, {{r['name']}}, {{r['allergens']}}"> {{r['allergens']}} </input> <br>
+    {% endfor %}
 </div>
