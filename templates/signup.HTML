@@ -1,0 +1,44 @@
+<div>
+    {% extends 'base.HTML' %}
+
+    {% block title %}{% endblock %}
+
+
+    {% block body %}
+
+    Hello world
+    <form action='/recipes' method="post">
+        <div class="input-group">
+            <span class="input-group-text">First and last name</span>
+            <input name="fname" type="text" aria-label="First name" class="form-control">
+            <input name="lname" type="text" aria-label="Last name" class="form-control">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Email</span>
+            <input name="email" type="text" aria-label="First name" class="form-control">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-text">Child's first and last name</span>
+            <input name="baby_fname" type="text" aria-label="First name" class="form-control">
+            <input name="baby_lname" type="text" aria-label="Last name" class="form-control">
+        </div>
+
+        <div class="form-check">
+            <fieldset>
+                {% for x in allergen %}
+                <input name="allergen" type="checkbox" value="{{x['id']}}, {{x['name']}}"> {{x['name']}} </input> <br>
+                {% endfor %}
+            </fieldset>
+            
+
+
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+    {% endblock %}
+</div>
