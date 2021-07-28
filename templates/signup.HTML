@@ -28,11 +28,10 @@
         <div class="form-check">
             <fieldset>
                 {% for x in allergen %}
-                <input name="allergen" type="checkbox" value="{{x['id']}}, {{x['name']}}"> {{x['name']}} </input> <br>
+                <input name="allergen" type="checkbox" value="{{x['name']}}"> {{x['name']}} </input> <br>
                 {% endfor %}
             </fieldset>
             
-
 
         </div>
 

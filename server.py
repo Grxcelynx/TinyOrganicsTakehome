@@ -16,7 +16,8 @@ app = Flask(__name__)
 app.secret_key = "dev"
 
 recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
-recipe_response.json()
+recipes = recipe_response.json()
+# print(recipes)
 # print("##################")
 # recipe_dict = json.loads(recipe_response.json)
 
@@ -35,7 +36,7 @@ def signup():
     return render_template('signup.HTML', allergen=allergen_response.json())
 
 @app.route('/recipes', methods=["POST"])
-def recipes():
+def tiny_organics():
     x = request.form.keys()
     print(f"keys: {x}")
     fname = request.form.get("fname")
@@ -50,18 +51,26 @@ def recipes():
     print(f"BABY LAST NAME: {baby_lname}")
     allergies = request.form.getlist("allergen")
     print(f"ALLERGIES: {allergies}")
+    # user_recipes = request.form.getlist("recipes")
+    # print(f"USER RECIPES: {user_recipes}")
+
 
     # if email in crud.user_emails():
     #     return "email used"
 
     new_user = crud.create_user(fname,lname,email,baby_fname,baby_lname,allergies)
-
-    if allergies not in recipe_response.json():
-
-
-
-        return render_template('user_recipe.HTML', new_user=new_user, recipes=recipe_response.json())
-
+    users_recipes = []
+    for r in recipes:
+        matched_allergy = False
+        for name in allergies:
+            if name in r["allergens"]:
+                matched_allergy = True
+                print(f"ANYTHING!?!?!: {r}")
+                break
+        if matched_allergy == False:
+            users_recipes.append(r)
+            
+    return render_template('user_recipe.HTML', new_user=new_user, users_recipes=users_recipes)
 
 
 
