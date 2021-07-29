@@ -1,12 +1,21 @@
-<div>
-    {% extends 'base.HTML' %}
+<div class="homepage">
+    {% extends 'base.html' %}
 
     {% block title %}{% endblock %}
 
 
     {% block body %}
+    <style>
+    h2 {text-align: center;}
 
-    <form action='/recipes' method="post">
+
+    </style>
+
+    <h2>Tiny Organics</h2>
+    <hr>
+    <h5>Find recipes that fit your tiny one's needs!</h5>
+
+    <form class="homepage" action='/recipes' method="post">
         <div class="input-group">
             <span class="input-group-text">First and last name</span>
             <input name="fname" type="text" aria-label="First name" class="form-control">
@@ -23,7 +32,7 @@
             <input name="baby_fname" type="text" aria-label="First name" class="form-control">
             <input name="baby_lname" type="text" aria-label="Last name" class="form-control">
         </div>
-
+        <p>Select all allergens you'd like to avoid</p>
         <div class="form-check">
             <fieldset>
                 {% for x in allergen %}
@@ -34,7 +43,7 @@
 
         </div>
 
-        
+        <hr>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
