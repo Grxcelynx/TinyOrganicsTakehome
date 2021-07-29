@@ -1,10 +1,41 @@
-<div>
+<!-- <div>
     Here is the new user: {{ new_user.user_id }}
     recipes: 
     {% for recipe in users_recipes %}
-        <a name="users_recipes" type="checkbox" value="{{recipe['allergens']}}"> Recipe name: {{recipe['name']}} The allergen: {{recipe['allergens']}}> </a> <br>
+        <a name="users_recipes" scope="row" value="{{recipe['allergens']}}"> Recipe name: {{recipe['name']}} The allergen: {{recipe['allergens']}}> </a> <br>
     {% endfor %}
 
     Whole List:
     {{ users_recipes }}
+</div> -->
+{% extends 'base.HTML' %}
+
+<div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Recipes Retrieved!</h4>
+    <p> {{ new_user.fname }} {{ new_user.lname }}, here are the recipes we suggest for {{ new_user.baby_fname }} {{ new_user.baby_lname }}</p>
+    <hr>
+    <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep thins nice and tidy.</p>
 </div>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Created At</th>
+        <th scope="col">Recipe</th>
+        <th scope="col">Allergens</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for recipe in users_recipes %}    
+    <tr>
+            <th name="users_recipes" scope="row" value="{{recipe['id']}}"> {{recipe['createdAt']}} </th> 
+            <td name="users_recipes" value="{{recipe['name']}}">{{recipe['name']}}</td>
+            <td name="users_recipes" value="{{recipe['allergens']}}">{{recipe['allergens']}}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<button>
+    <a href="/signup">Home</a>
+</button>
