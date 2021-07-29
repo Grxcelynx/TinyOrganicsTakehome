@@ -17,9 +17,7 @@ allergen_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/ap
 allergen_response.json()
 
 
-@app.route('/')
-def homepage():
-    return render_template('homepage.HTML')
+
 
 @app.route('/signup')
 def signup():
