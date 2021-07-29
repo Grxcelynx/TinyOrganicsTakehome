@@ -1,11 +1,10 @@
 <div>
     Here is the new user: {{ new_user.user_id }}
-    {% for r in recipes %}
-        {% if 'name.allergen' in recipes %}
-            <p>Sorry:</p>
-        {% else %}
-            <p> {{ recipes['name'] }} </p>
-        {% endif %}
-    <!-- <input name="recipes" value="{{r['id']}}, {{r['name']}}, {{r['allergens']}}"> {{r['allergens']}} </input> <br> -->
+    recipes: 
+    {% for recipe in users_recipes %}
+        <a name="users_recipes" type="checkbox" value="{{recipe['allergens']}}"> Recipe name: {{recipe['name']}} The allergen: {{recipe['allergens']}}> </a> <br>
     {% endfor %}
+
+    Whole List:
+    {{ users_recipes }}
 </div>
