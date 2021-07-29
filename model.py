@@ -14,8 +14,6 @@ class User(db.Model):
     baby_fname = db.Column(db.Text)
     baby_lname = db.Column(db.Text)
     allergies = db.Column(db.Text)
-    # user_recipes = db.Column(db.Text)
-
 # class Allergies(db.Model):
 #     """Allergens from API"""
 

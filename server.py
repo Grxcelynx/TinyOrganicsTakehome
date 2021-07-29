@@ -1,8 +1,3 @@
-#user email already used - check email value and return msg saying already use 
-#fetch recipe list and compare to user input of allergens 
-#save recipes that go with user's specifications into db
-#attempt to convert to react - ATTEMPT 
-
 from flask import (Flask, render_template, request, flash, session, redirect, jsonify)
 
 from model import connect_to_db 
@@ -17,12 +12,10 @@ app.secret_key = "dev"
 
 recipe_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/recipes/")
 recipes = recipe_response.json()
-# print(recipes)
-# print("##################")
-# recipe_dict = json.loads(recipe_response.json)
 
 allergen_response = requests.get("https://60f5adf918254c00176dffc8.mockapi.io/api/v1/allergens/")
 allergen_response.json()
+
 
 @app.route('/')
 def homepage():
@@ -32,8 +25,8 @@ def homepage():
 def signup():
     """homepage display/ signup page"""
 
-    
     return render_template('signup.HTML', allergen=allergen_response.json())
+
 
 @app.route('/recipes', methods=["POST"])
 def tiny_organics():
@@ -51,12 +44,9 @@ def tiny_organics():
     print(f"BABY LAST NAME: {baby_lname}")
     allergies = request.form.getlist("allergen")
     print(f"ALLERGIES: {allergies}")
-    # user_recipes = request.form.getlist("recipes")
-    # print(f"USER RECIPES: {user_recipes}")
+    # my_recipes = request.form.get("users_recipes")
+    # print(f"USER RECIPES: {my_recipes}")
 
-
-    # if email in crud.user_emails():
-    #     return "email used"
 
     new_user = crud.create_user(fname,lname,email,baby_fname,baby_lname,allergies)
     users_recipes = []
@@ -65,7 +55,6 @@ def tiny_organics():
         for name in allergies:
             if name in r["allergens"]:
                 matched_allergy = True
-                print(f"ANYTHING!?!?!: {r}")
                 break
         if matched_allergy == False:
             users_recipes.append(r)
