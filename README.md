@@ -1,6 +1,6 @@
 # Tiny Organics Takehome 
 
-##This takehome assignment was to develop and launch a mini site with specified features such as: 
+## This takehome assignment was to develop and launch a mini site with specified features such as: 
 
 1. As a new `Customer`, I should be able to access the home page which contains a form which I will enter my information such as:
     1. first name 
