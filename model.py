@@ -10,43 +10,12 @@ class User(db.Model):
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     fname = db.Column(db.Text)
     lname = db.Column(db.Text)
-    email = db.Column(db.Text, unique=True)
+    email = db.Column(db.Text)
+    # email = db.Column(db.Text, unique=True) <= for future when wanting to filter emails already used 
     baby_fname = db.Column(db.Text)
     baby_lname = db.Column(db.Text)
     allergies = db.Column(db.Text)
-# class Allergies(db.Model):
-#     """Allergens from API"""
 
-#     __tablename__ = 'allergies'
-
-#     allergy_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     a_created_at = db.Column(db.Text)
-#     name = db.Column(db.Text, unique=True)
-
-# class Recipes(db.Model):
-#     """Recipes from API"""
-
-#     __tablename__ = 'recipes'
-
-#     recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     r_created_at = db.Column(db.Text)
-#     allergens_included = db.Column(db.Text)
-#     name = db.Column(db.Text, unique=True)
-
-
-# class UsersRecipes(db.Model):
-#     """Showing all recipes for each individual customer's needs"""
-
-#     __tablename__ = 'users_recipes'
-
-#     user_recipe_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'))
-#     recipe_id = db.Column(db.Integer, db.ForeignKey('recipes.recipes_id'))
-#     allergy_id = db.Column(db.Integer, db.ForeignKey('allergies.allergy_id'))
-
-#     user = db.relationship('User', backref='users_recipes')
-#     recipe = db.relationship('Recipes', backref='recipes')
-#     allergy = db.relationship('Allergies', backref='allergies')
 
 
 

@@ -16,22 +16,38 @@ def get_all_users():
 
     return User.query.all()
 
-def user_emails():
-    """Return all emails."""
 
-    email_list = []
 
-    for user in get_all_users():
-        email_list.append(user.email)
 
-    return email_list
 
-def get_user_by_email(email):
-    """Returns a user with email."""
 
-    return User.query.filter(User.email == email).first()
 
-def get_user_by_email(email):
-    """Return a user by email."""
 
-    return User.query.filter(User.email == email).first()
+
+
+
+
+
+
+
+
+# !!! for filtering out which emails are used in future. !!!
+# def user_emails():
+#     """Return all emails."""
+
+#     email_list = []
+
+#     for user in get_all_users():
+#         email_list.append(user.email)
+
+#     return email_list
+
+# def get_user_by_email(email):
+#     """Returns a user with email."""
+
+#     return User.query.filter(User.email == email).first()
+
+# def get_user_by_email(email):
+#     """Return a user by email."""
+
+    # return User.query.filter(User.email == email).first()
