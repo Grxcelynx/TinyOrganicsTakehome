@@ -40,13 +40,19 @@ By fetching data from the two APIs supplied by Tiny Organics:
 A user can fill out the set fields and select the allergens that apply to their child. 
 
 Created a user class and seeded all user input into the Tiny Organics database. 
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/homepage.png">
 
 With a POST method retrieving user's data and referencing the APIs each time a new user submits a form, this allows for a more accurate comparison vs creating a Json file with the data as there would be more maintenance with checking the API data to assure any changes. 
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/model.py.GIF">
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/server.py.GIF">
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/crud.py.GIF">
 
 ### Results Page
 Here a user will be able to view the recipes that suit their child's needs and display the allergens that do not apply. 
-
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/results.png">
 By taking in the user's input and comparing it to the list of allergens, the user is given the result of a new list of recipes that fit their needs. 
+<img src="https://github.com/Grxcelynx/TinyOrganicsTakehome/blob/main/READMEPhotos/html.GIF">
+
 ## <a name="future"></a> Future Feature Adjustments
 * Implement a section for a user to type additional allergies and compare their input to the allergy list
 * Make the email key unique so a user will know if an email has been taken 
