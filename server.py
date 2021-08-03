@@ -65,5 +65,6 @@ def tiny_organics():
 
 if __name__ == '__main__':
     connect_to_db(app)
-    model.db.create_all()
-    app.run(host='0.0.0.0', debug=True, port=5000)
+    # model.db.create_all()
+    port = int(os.environ.get("PORT",5000))
+    app.run(host='0.0.0.0', debug=True, port=port)
