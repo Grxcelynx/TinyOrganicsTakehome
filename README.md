@@ -22,6 +22,7 @@ Your project should fetch the list of recipes, store them in the database, and f
 * [Tech Stack](#teach-stack)
 * [Features](#features)
 * [Future Feature Adjustments](#future)
+* [Deployment](#deployed)
 * [Installation](#installation)
 
 ## <a name="tech-stack"></a> Technologies      
