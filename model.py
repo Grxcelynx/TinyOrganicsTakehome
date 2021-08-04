@@ -25,6 +25,8 @@ def connect_to_db(flask_app, db_uri='postgresql:///tinyOrganics', echo=True):
 
     db.app = flask_app
     db.init_app(flask_app)
+    db.create_all()
+
 
     print('Connected to the db!')
 
