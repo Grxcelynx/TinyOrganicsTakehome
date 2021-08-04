@@ -35,6 +35,8 @@ def db_drop_and_create_all():
 if __name__ ==  '__main__':
     from server import app
     db_URI = os.getenv('HEROKU_POSTGRESQL_SILVER_URL', 'postgresql:///tinyOrganics')
+    if db_URI.startswith("postgres://"):
+        db_URI = db_URI.replace("postgres://", "postgresql://", 1)
     print(f"SHOWING DB URL STUFF: {db_URI}")
     connect_to_db(app, db_uri=db_URI)
     
