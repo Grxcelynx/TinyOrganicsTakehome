@@ -64,7 +64,9 @@ def tiny_organics():
 
 
 if __name__ == '__main__':
-    connect_to_db(app)
+    db_URI = os.getenv('DATABASE_URL', 'postgresql:///tinyOrganics')
+    connect_to_db(app, db_uri=db_URI)
     # model.db.create_all()
     port = int(os.environ.get("PORT",5000))
     app.run(host='0.0.0.0', debug=True, port=port)
+    

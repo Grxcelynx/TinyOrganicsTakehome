@@ -27,7 +27,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///tinyOrganics', echo=True):
     db.init_app(flask_app)
 
     print('Connected to the db!')
-    
+
 def db_drop_and_create_all():
     db.drop_all()
     db.create_all()
