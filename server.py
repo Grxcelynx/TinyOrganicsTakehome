@@ -21,7 +21,7 @@ allergen_response.json()
 def signup():
     """homepage display/ signup page"""
 
-    return render_template('signup.html', allergen=allergen_response.json())
+    return render_template('signup.HTML', allergen=allergen_response.json())
 
 
 @app.route('/recipes', methods=["POST"])
@@ -57,7 +57,7 @@ def tiny_organics():
         if matched_allergy == False:
             users_recipes.append(r)
             
-    return render_template('user_recipe.html', new_user=new_user, users_recipes=users_recipes)
+    return render_template('user_recipe.HTML', new_user=new_user, users_recipes=users_recipes)
 
 
 
