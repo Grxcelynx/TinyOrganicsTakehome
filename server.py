@@ -64,7 +64,7 @@ def tiny_organics():
 
 
 if __name__ == '__main__':
-    db_URI = os.getenv('DATABASE_URL', 'postgresql:///tinyOrganics')
+    db_URI = os.getenv('HEROKU_POSTGRESQL_SILVER_URL', 'postgresql:///tinyOrganics')
     print(f"THIS IS THE DB: {db_URI}")
     connect_to_db(app, db_uri=db_URI)
     # model.db.create_all()
